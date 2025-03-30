@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Minimercado PUC</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style> /* Aqui foi feita a separação do CSS. */
+        body {
+            font-family: Arial, sans-serif;
+        }
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 15px;
+        }
+        .navbar {
+            background-color: #0056b3;
+        }
+        .navbar a {
+            color: white !important;
+        }
+        .section-title {
+            margin-top: 20px;
+        }
+        .product-card, .service-card {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        footer {
+            background-color: #343a40;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        .login-btn {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+    <header class="text-center">
+        <h1>Minimercado XYZ</h1>
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item"><a class="nav-link" href="#produtos">Produtos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#servicos">Serviços</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#agendamentoModal">Agendamento</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Botão de Login no canto superior direito -->
+    <button class="btn btn-outline-light login-btn" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
+    
+    <!-- Login -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Login</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="loginEmail" class="form-label">E-mail</label>
+                            <input type="email" class="form-control" id="loginEmail" placeholder="Digite seu e-mail" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="loginPassword" class="form-label">Senha</label>
+                            <input type="password" class="form-control" id="loginPassword" placeholder="Digite sua senha" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Entrar</button>
+                    </form>
+                    <hr>
+                    <button class="btn btn-link w-100" data-bs-toggle="modal" data-bs-target="#signupModal" data-bs-dismiss="modal">Criar Conta</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--  Criação de Conta -->
+    <div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="signupModalLabel">Criar Conta</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="signupName" class="form-label">Nome</label>
+                            <input type="text" class="form-control" id="signupName" placeholder="Digite seu nome" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="signupEmail" class="form-label">E-mail</label>
+                            <input type="email" class="form-control" id="signupEmail" placeholder="Digite seu e-mail" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="signupPassword" class="form-label">Senha</label>
+                            <input type="password" class="form-control" id="signupPassword" placeholder="Crie uma senha" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="signupPhone" class="form-label">Telefone</label>
+                            <input type="tel" class="form-control" id="signupPhone" placeholder="Digite seu telefone" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="signupAddress" class="form-label">Endereço</label>
+                            <input type="text" class="form-control" id="signupAddress" placeholder="Digite seu endereço" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Criar Conta</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="bannerCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="Imagens/banner1.jpeg" class="d-block w-100" alt="Banner 1">
+            </div>
+            <div class="carousel-item">
+                <img src="Imagens/banner2.jpeg" class="d-block w-100" alt="Banner 2">
+            </div>
+            <div class="carousel-item">
+                <img src="Imagens/banner3.jpeg" class="d-block w-100" alt="Banner 3">
+            </div>
+        </div>
+    </div>
+    
+    <main class="container mt-4">
+        <section id="produtos" class="section-title">
+            <h2 class="text-center">Produtos</h2>
+            <div class="row">
+                <div class="col-md-4 product-card">
+                    <h3>Bebidas</h3>
+                    <img src="Imagens/refrigerante.jpg" class="img-fluid" alt="Refrigerante">
+                    <p>Refrigerante - R$ 5,00</p>
+                    <img src="Imagens/Suco Natural.jpg" class="img-fluid" alt="Suco Natural">
+                    <p>Suco Natural - R$ 7,00</p>
+                </div>
+                <div class="col-md-4 product-card">
+                    <h3>Hortifruti</h3>
+                    <img src="Imagens/Banana.jpg" class="img-fluid" alt="Banana">
+                    <p>Banana - R$ 3,65/kg</p>
+                    <img src="Imagens/maça.jpg" class="img-fluid" alt="Maçã">
+                    <p>Maçã - R$ 6,00/kg</p>
+                </div>
+                <div class="col-md-4 product-card">
+                    <h3>Padaria</h3>
+                    <img src="Imagens/Pao franes.jpg" class="img-fluid" alt="Pão Francês">
+                    <p>Pão Francês - R$ 0,75/un</p>
+                    <img src="Imagens/Bolo.jpg" class="img-fluid" alt="Bolo">
+                    <p>Bolo de Chocolate - R$ 15,00</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="servicos" class="section-title">
+            <h2 class="text-center">Serviços</h2>
+            <div class="row">
+                <div class="col-md-6 service-card">
+                    <img src="Imagens/Entrega.jpg" class="img-fluid" alt="Entrega">
+                    <p>Entrega em domicílio - R$ 10,00</p>
+                </div>
+                <div class="col-md-6 service-card">
+                    <img src="Imagens/Mercadoria.jpg" class="img-fluid" alt="Compra programada">
+                    <p>Compra programada - R$ 20,00/mês</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer id="contato" class="mt-4">
+        <p>&copy; 2025 Minimercado PUC. Todos os direitos reservados.</p>
+        <p>Contato: contato@minimercadopuc.com | Telefone: (74) 99999-9999</p>
+        <nav>
+            <ul class="list-inline">
+                <li class="list-inline-item"><a class="text-white" href="#produtos">Produtos</a></li>
+                <li class="list-inline-item"><a class="text-white" href="#servicos">Serviços</a></li>
+                <li class="list-inline-item"><a class="text-white" href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Modal de Agendamento -->
+    <div class="modal fade" id="agendamentoModal" tabindex="-1" aria-labelledby="agendamentoModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="agendamentoModalLabel">Agendamento de Retirada ou Entrega</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Calendário para escolha da data e hora -->
+                    <label for="dataHora">Escolha a data e hora:</label>
+                    <input type="datetime-local" id="dataHora" class="form-control mb-3">
+
+                    <!-- Opção de retirada ou entrega -->
+                    <label for="tipoAgendamento">Escolha o tipo de agendamento:</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="tipoAgendamento" id="retirada" value="retirada" checked>
+                        <label class="form-check-label" for="retirada">
+                            Retirada no local
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="tipoAgendamento" id="teleEntrega" value="teleEntrega">
+                        <label class="form-check-label" for="teleEntrega">
+                            Tele-entrega
+                        </label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" id="concluirAgendamento">Concluir</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById('concluirAgendamento').addEventListener('click', function() {
+            const tipo = document.querySelector('input[name="tipoAgendamento"]:checked').value;
+            const dataHora = document.getElementById('dataHora').value;
+            
+            if (dataHora) {
+                alert(`Agendamento confirmado: ${tipo} para ${dataHora}`);
+                // Aqui você pode adicionar a lógica para enviar esses dados para o servidor, se necessário
+                // Fechar o modal após concluir
+                var modal = bootstrap.Modal.getInstance(document.getElementById('agendamentoModal'));
+                modal.hide();
+            } else {
+                alert("Por favor, selecione a data e hora para o agendamento.");
+            }
+        });
+    </script>
+</body>
+</html>
